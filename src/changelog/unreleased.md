@@ -94,6 +94,7 @@ changelog entry.
 - Changed how `ModifiersState` is serialized by Serde.
 - `VideoModeHandle::refresh_rate_millihertz()` and `bit_depth()` now return a `Option<NonZero*>`.
 - `MonitorHandle::position()` now returns an `Option`.
+- On X11, remove our dependency on libXcursor. (#3749)
 
 ### Removed
 
