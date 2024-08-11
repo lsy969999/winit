@@ -16,7 +16,7 @@
 use crate::event_loop::{ActiveEventLoop, EventLoop, EventLoopBuilder};
 use crate::monitor::MonitorHandle;
 pub use crate::window::Theme;
-use crate::window::{Window, WindowAttributes};
+use crate::window::{Window as CoreWindow, WindowAttributes};
 
 /// Additional methods on [`ActiveEventLoop`] that are specific to Wayland.
 pub trait ActiveEventLoopExtWayland {
@@ -73,7 +73,7 @@ impl EventLoopBuilderExtWayland for EventLoopBuilder {
 /// Additional methods on [`Window`] that are specific to Wayland.
 pub trait WindowExtWayland {}
 
-impl WindowExtWayland for Window {}
+impl WindowExtWayland for dyn CoreWindow + '_ {}
 
 /// Additional methods on [`WindowAttributes`] that are specific to Wayland.
 pub trait WindowAttributesExtWayland {
