@@ -543,12 +543,12 @@ pub(crate) fn handle_nonuser_events<I: IntoIterator<Item = EventWrapper>>(
         match wrapper {
             EventWrapper::StaticEvent(event) => {
                 if !processing_redraws && event.is_redraw() {
-                    tracing::info!("processing `RedrawRequested` during the main event loop");
+                    // tracing::info!("processing `RedrawRequested` during the main event loop");
                 } else if processing_redraws && !event.is_redraw() {
-                    tracing::warn!(
-                        "processing non `RedrawRequested` event after the main event loop: {:#?}",
-                        event
-                    );
+                    // tracing::warn!(
+                    //     "processing non `RedrawRequested` event after the main event loop: {:#?}",
+                    //     event
+                    // );
                 }
                 handler.handle_event(event)
             },
@@ -588,13 +588,13 @@ pub(crate) fn handle_nonuser_events<I: IntoIterator<Item = EventWrapper>>(
             match wrapper {
                 EventWrapper::StaticEvent(event) => {
                     if !processing_redraws && event.is_redraw() {
-                        tracing::info!("processing `RedrawRequested` during the main event loop");
+                        // tracing::info!("processing `RedrawRequested` during the main event loop");
                     } else if processing_redraws && !event.is_redraw() {
-                        tracing::warn!(
-                            "processing non-`RedrawRequested` event after the main event loop: \
-                             {:#?}",
-                            event
-                        );
+                        // tracing::warn!(
+                        //     "processing non-`RedrawRequested` event after the main event loop: \
+                        //      {:#?}",
+                        //     event
+                        // );
                     }
                     handler.handle_event(event)
                 },
